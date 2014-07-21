@@ -1,4 +1,6 @@
-codejam [](https://travis-ci.org/sinkingshriek/codejam.svg?branch=master)
+[](https://travis-ci.org/sinkingshriek/codejam.svg?branch=master)
+
+codejam 
 =======
 
 node.js and related
