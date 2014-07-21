@@ -7,6 +7,8 @@ Mongo
 Express
 Angular
 Node
-???
+
+Mocha
+Gulp
 
 Sails.js?
