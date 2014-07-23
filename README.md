@@ -1,4 +1,4 @@
-codejam [![Build Status](https://travis-ci.org/sinkingshriek/codejam.svg?branch=master)](https://travis-ci.org/sinkingshriek/codejam)
+codejam [![Build Status](https://travis-ci.org/sinkingshriek/codejam.svg?branch=master)](https://travis-ci.org/sinkingshriek/codejam) [![Dependency Status](https://gemnasium.com/sinkingshriek/codejam.svg)](https://gemnasium.com/sinkingshriek/codejam)
 =======
 
 node.js and related
