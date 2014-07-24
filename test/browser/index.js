@@ -1,3 +1,5 @@
 describe("Test for a test", function(){
-	assert.equal('lol','lol');
-}});
+	it("should equal to lol on browser side", function(){
+		"lol".should.equal('lol');
+	});
+});
