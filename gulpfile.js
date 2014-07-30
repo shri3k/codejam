@@ -4,13 +4,13 @@ var mocha = require("gulp-spawn-mocha");
 var stylish = require("jshint-stylish");
 
 gulp.task("lint-js", function(){
-	gulp.src(['./gulpfile.js','!./node_modules', '!./node_modules/**', './**.js'])
+	return gulp.src(['./gulpfile.js','!./node_modules', '!./node_modules/**', './**.js'])
 		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter(stylish));
 });
 
 gulp.task("test", function(){
-	gulp.src(['./test/browser/**', './test/server/**'])
+	return gulp.src(['./test/browser/**', './test/server/**'])
 		.pipe(mocha());
 });
 
