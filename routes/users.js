@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-  res.send('respond with a resource');
+	res.setHeader("Content-Type", "text/json");
+	res.send(JSON.stringify({"api":"univ-quizzer", "ver": "0.0.1"}));
 });
 
 module.exports = router;
