@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "test": "gulp"
+    "start": "NODE_PATH=./config:./routes NODE_ENV=development ./node_modules/.bin/nodemon app.js",
+    "test": "gulp test"
   },
   "dependencies": {
     "express": "~4.0.0",
@@ -14,7 +14,9 @@
     "body-parser": "~1.0.0",
     "debug": "~0.7.4",
     "hbs": "^2.7.0",
-    "mongoose": "~3.8.14"
+    "mongoose": "~3.8.14",
+    "connect-mongo": "~0.4.1",
+    "mongoose-user": "0.0.1"
   },
   "devDependencies": {
     "gulp": "^3.8.6",
