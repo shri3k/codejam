@@ -11,7 +11,8 @@ router.post('/', function(req, res) {
 	    title:  req.body.title,
 	    descr:  req.body.descr,
 	    author: req.body.author,
-	    type:   req.body.type
+	    type:   req.body.type,
+	    comments: req.body.comments
   	});
 	q.save(function (err, added, count) {
 		if (err) return res.json({error: "500", details: err});

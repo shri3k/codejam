@@ -24,7 +24,7 @@ app.engine('html', require('hbs').__express);
 
 //middlewares
 app.use(favicon());
-app.use(logger('dev'));
+app.use(logger(config.logFormat));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
@@ -54,7 +54,6 @@ fs.readdirSync(__dirname + '/models').forEach(function (file) {
 });
 
 var port = process.env.PORT || 8080;
-var router = express.Router();
 
 app.listen(port);
 console.log('Listening on port ' + port);
