@@ -9,12 +9,12 @@
   "dependencies": {
     "express": "~4.0.0",
     "static-favicon": "~1.0.0",
-    "morgan": "~1.0.0",
+    "morgan": "~1.2.2",
     "cookie-parser": "~1.0.1",
     "body-parser": "~1.0.0",
     "debug": "~0.7.4",
     "hbs": "^2.7.0",
-    "mongoose": "~3.8.14",
+    "mongoose": "^3.9.0",
     "connect-mongo": "~0.4.1",
     "mongoose-user": "0.0.1"
   },
