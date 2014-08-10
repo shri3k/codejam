@@ -1,9 +1,4 @@
-
-/**
- * Expose
- */
-
 module.exports = {
-  db: 			process.env.db,
-  logFormat: 	process.env.logFormat || "dev", 
+  db:           process.env.db || "mongodb://localhost/quiz",
+  logFormat:    process.env.logFormat || "dev", 
 };
