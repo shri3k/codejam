@@ -53,9 +53,9 @@ fs.readdirSync(__dirname + '/models').forEach(function (file) {
 	if (~file.indexOf('.js')) require(__dirname + '/models/' + file);
 });
 
-var port = process.env.PORT || 8080;
+// var port = process.env.PORT || 8080;
 
-app.listen(port);
-console.log('Listening on port ' + port);
+// app.listen(port);
+// console.log('Listening on port ' + port);
 
 module.exports = app;
