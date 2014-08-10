@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "NODE_PATH=./config:./routes NODE_ENV=development ./node_modules/.bin/nodemon bin/www",
-    "test": "gulp test"
+    "test": "gulp test",
+    "inspect": "./node_modules/.bin/node-inspector bin/www",
+    "debug": "NODE_PATH=./config:./routes NODE_ENV=development node --debug bin/www"
   },
   "dependencies": {
     "express": "~4.0.0",
@@ -27,6 +29,7 @@
     "should": "^4.0.4",
     "gulp-spawn-mocha": "^0.1.7-beta.3",
     "nodemon": "^1.2.1",
-    "istanbul": "^0.3.0"
+    "istanbul": "^0.3.0",
+    "node-inspector": "^0.7.4"
   }
 }
