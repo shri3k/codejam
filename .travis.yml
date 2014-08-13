@@ -6,4 +6,7 @@ services:
    - mongodb
 before_script:
    - sleep 15   
- 
+#whitelist
+branches:
+  only:
+    - master
