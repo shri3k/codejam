@@ -1,4 +1,4 @@
 module.exports = {
   db:           process.env.db || "mongodb://localhost/quiz",
-  logFormat:    process.env.logFormat || "combined",
+  logFormat:    process.env.logFormat || " ",
 };

@@ -23,15 +23,13 @@ function Post(req, res) {
 }
 
 function Get(req, res) {
-	var Quiz = mongoose.model('Quiz'),
-		arg1 = req.params.id || {};
+	var Quiz = mongoose.model('Quiz');
 
 	function callback(err, data) {
 		if (err) return res.send(err);
 		res.json(data);
 	}
-
-	(typeof arg1 === "number") ? Quiz.findById(arg1, callback) : Quiz.find(arg1, callback);
+	(req.params.id) ? Quiz.findById(req.params.id, callback) : Quiz.find({}, callback);
 }
 
 function Delete(req, res) {
