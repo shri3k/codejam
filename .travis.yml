@@ -1,12 +1,14 @@
 language: node_js
 node_js:
-   - "0.11"
-   - "0.10"
+- '0.11'
+- '0.10'
 services:
-   - mongodb
+- mongodb
 before_script:
-   - sleep 15   
-#whitelist
+- sleep 15
 branches:
   only:
-    - master
+  - master
+deploy:
+  api_key:
+    secure: WcCieFLimtRLixOZhrUNEXtU5ctV1z544fQs++GKUoPRWnPHby8cF6dbj/6/YXbg2wzmySXcRDtyOjinsOPp33oY5d7Y5ONgGnWBUs89r7dMqf0h02ZiusoI8qguabtWb94y4n1CILXZ9ChzRF546rqaVaUB0XLvsfiuREzJB3A=
