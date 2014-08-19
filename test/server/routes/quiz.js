@@ -7,17 +7,33 @@ describe("Quiz API", function() {
   
     var doc;
 
-    it("Post should return the created document", function (done) {
+    it("Post of an invalid document should return a 404 response", function (done) {
         request(app)
             .post("/quiz")
-            .send({title: "Supertest", descr:"this is a test", author:"mocha"})
+            .send({title: "Bad Document", descr:"this is a test", author:"mocha", type:"XX"})
             .end(function(err, res){
                 if (err) return done(err);
-                res.statusCode.should.equal(200) 
+                res.statusCode.should.equal(400) 
                 res.should.not.be.empty;
                 res.should.be.json;
                 res.body.should.be.an.Object;
-                res.body.should.have.keys(['_id','hidden','date','title','descr','author']);
+                res.body.should.have.keys(['errors','message','name']);
+                res.body.should.have.property('message', 'Validation failed');
+                done();
+        });
+    });
+
+    it("Post should return the created document", function (done) {
+        request(app)
+            .post("/quiz")
+            .send({title: "Supertest", descr:"this is a test", author:"mocha", type:"MC"})
+            .end(function(err, res){
+                if (err) return done(err);
+                res.statusCode.should.equal(200);
+                res.should.not.be.empty;
+                res.should.be.json;
+                res.body.should.be.an.Object;
+                res.body.should.have.keys(['_id','hidden','date','title','descr','author','type','__v']);
                 res.body.should.have.property('author', 'mocha');
                 doc = res.body;
                 done();
@@ -29,7 +45,7 @@ describe("Quiz API", function() {
             .get("/quiz/"+ doc._id)
             .end(function(err, res){
                 if (err) return done(err);
-                res.statusCode.should.equal(200) 
+                res.statusCode.should.equal(200);
                 res.should.not.be.empty;
                 res.should.be.json;
                 res.body.should.be.an.Object;
@@ -45,7 +61,7 @@ describe("Quiz API", function() {
             .get("/quiz")
             .end(function(err, res){
                 if (err) return done(err);
-                res.statusCode.should.equal(200) 
+                res.statusCode.should.equal(200); 
                 res.should.not.be.empty;
                 res.should.be.json;
                 res.body.should.be.an.Array.and.not.have.lengthOf(0);    
@@ -58,12 +74,23 @@ describe("Quiz API", function() {
             .delete("/quiz/"+ doc._id)
             .end(function(err, res){
                 if (err) return done(err);
-                res.statusCode.should.equal(200) 
+                res.statusCode.should.equal(200);
                 res.should.not.be.empty;
                 res.should.be.json;
                 res.body.should.be.an.Object;  
-                res.body.should.containEql({message: 'deleted'});
-                // res.body.should.containDeep({object: { ok: true, n: 1 } });  
+                res.body.should.have.property('message','deleted');
+                done();
+        });
+    });
+
+
+    it("Delete with a non-existent key should return a 404 status and an error response", function (done) {
+        request(app)
+            .delete("/quiz/"+ doc._id)
+            .end(function(err, res){
+                if (err) return done(err);
+                res.statusCode.should.equal(404);
+                res.body.should.have.property('error');
                 done();
         });
     });
