@@ -1,4 +1,4 @@
---require mocha-chai-wrap 
+--require should
 --reporter spec
 --ui tdd
 --recursive
