@@ -20,7 +20,7 @@ function Post(req, res) {
 			return res.json(q);
 		}
 	});
-	
+
 }
 
 function Get(req, res) {
@@ -38,10 +38,15 @@ function Delete(req, res) {
 	Quiz.remove({
 		_id: req.params.id
 	}, function(err, quiz, obj) {
-		if (obj.n == 0) {
-			return res.send(404, {error: 'not found'});
+		if (quiz === 0) {
+			res.send(404, {
+				error: 'not found'
+			});
 		} else {
-			res.json({ message: 'deleted', object: obj });
+			res.json({
+				message: 'deleted',
+				object: obj
+			});
 		}
 	});
 }
