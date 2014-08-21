@@ -5,10 +5,11 @@ describe("Quiz API", function() {
 
   describe("Post, Get, & Delete", function() {
   
-    var doc;
+    var doc,
+        agent = request.agent(app);
 
     it("Post of an invalid document should return a 404 response", function (done) {
-        request(app)
+        agent
             .post("/quiz")
             .send({title: "Bad Document", descr:"this is a test", author:"mocha", type:"XX"})
             .end(function(err, res){
@@ -24,7 +25,7 @@ describe("Quiz API", function() {
     });
 
     it("Post should return the created document", function (done) {
-        request(app)
+        agent
             .post("/quiz")
             .send({title: "Supertest", descr:"this is a test", author:"mocha", type:"MC"})
             .end(function(err, res){
@@ -41,7 +42,7 @@ describe("Quiz API", function() {
     });
     
     it("Get with a key should return a single document", function (done) {
-        request(app)
+        agent
             .get("/quiz/"+ doc._id)
             .end(function(err, res){
                 if (err) return done(err);
@@ -57,7 +58,7 @@ describe("Quiz API", function() {
     });
 
     it("Get with no key should return an array of documents", function (done) {
-        request(app)
+        agent
             .get("/quiz")
             .end(function(err, res){
                 if (err) return done(err);
@@ -70,7 +71,7 @@ describe("Quiz API", function() {
     });
 
     it("Delete with a key should return a JSON object with a deleted count of 1", function (done) {
-        request(app)
+        agent
             .delete("/quiz/"+ doc._id)
             .end(function(err, res){
                 if (err) return done(err);
@@ -85,7 +86,8 @@ describe("Quiz API", function() {
 
 
     it("Delete with a non-existent key should return a 404 status and an error response", function (done) {
-        request(app)
+        console.log(doc._id);
+        agent
             .delete("/quiz/"+ doc._id)
             .end(function(err, res){
                 if (err) return done(err);

@@ -9,6 +9,7 @@ before_script:
 branches:
   only:
   - master
+  - develop
 deploy:
   provider: heroku
   api_key:
