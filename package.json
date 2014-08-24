@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "angular": "^1.2.21",
+    "angular-router-browserify": "0.0.1",
     "body-parser": "^1.0.0",
     "connect-mongo": "^0.4.1",
     "cookie-parser": "^1.0.1",
