@@ -9,10 +9,7 @@ Angular
 Node
 
 Mocha
+Chai
+Supertest
+Browserify
 Gulp
-
-Sails.js?
-
-Trello test
-Trello test 2
-
