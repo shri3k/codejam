@@ -8,8 +8,8 @@ Express
 Angular
 Node
 
-Mocha
-Chai
-Supertest
-Browserify
+Mocha  
+Chai  
+Supertest  
+Browserify  
 Gulp
