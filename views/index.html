@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="quizMe">
+<html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +7,24 @@
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
 	</head>
-	<body>
-	<ng-view></ng-view>
+	<body ng-app="quizMe">
+		<ng-view></ng-view>
 		<div class="pure-g">
-		<div class="pure-u-1 pure-u-md-1-3">
-			<form class="pure-form pure-form-aligned">
-				<fieldset>
-					<div class="pure-control-group">
-						<input id="email" type="email" placeholder="Email Address">
-					</div>
-					<div class="pure-control-group">
-						<input id="password" type="password" placeholder="Password">
-						<a href="#">Register</a>
-					</div>
-					<button type="submit" class="pure-button pure-button-primary">Submit</button>
-				</div>
-			</fieldset>
-		</form>
+			<div class="pure-u-1 pure-u-md-1-3">
+				<form name="LoginForm" class="pure-form pure-form-aligned" novalidate ng-controller="LoginController as login" ng-submit="login.submit(LoginForm.$valid)">
+					<fieldset>
+						<div class="pure-control-group">
+							<input id="email" type="email" placeholder="Email Address" ng-model="login.email" required>
+						</div>
+						<div class="pure-control-group">
+							<input id="password" type="password" placeholder="Password" ng-model="login.password" required>
+							<a href="#">Register</a>
+						</div>
+						<button type="submit" class="pure-button pure-button-primary">Submit</button>
+					</fieldset>
+				</form>
+			</div>
 		</div>
-	</div>
-	<script src="../javascripts/bundle.js"></script>
-</body>
+		<script src="../js/bundle.js"></script>
+	</body>
 </html>
