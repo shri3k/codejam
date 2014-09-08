@@ -5,8 +5,8 @@ var logo = new icon({
 	"circleX": 8,
 	"circleY": 8,
 	"rectWidth": 3,
-	"rectHeight": 6,
-	"rectHeight2": 2.5
+	"rectHeight": 7,
+	"rectHeight2": 3
 });
 console.log(logo);
 var svg = d3.select(".icon")
@@ -21,13 +21,13 @@ svg.append("circle")
 	.attr("fill", "red");
 svg.append("rect")
 	.attr("x", logo.getRectX())
-	.attr("y", logo.getRectY())
+	.attr("y", logo.setRectY(1))
 	.attr("height", logo.rectHeight)
 	.attr("width", logo.rectWidth)
 	.attr("fill", "white")
 svg.append("rect")
 	.attr("x", logo.getRectX())
-	.attr("y", logo.setRectY2(3))
+	.attr("y", logo.setRectY2(3.5))
 	.attr("height", logo.rectHeight2)
 	.attr("width", logo.rectWidth)
 	.attr("fill", "white");

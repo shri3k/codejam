@@ -11,10 +11,12 @@ Icon.prototype = {
   getRectX: function(){
     return this.circleX - this.rectWidth/2;
   },
-  getRectY: function(){
-    return this.circleY - this.rectHeight;
+  setRectY: function(arg){
+    var offset = arg || 0;
+    return (this.circleY - this.rectHeight) + offset;
   },
-  setRectY2: function(offset){
+  setRectY2: function(arg){
+    var offset = arg || 0;
     return this.rectHeight + offset;
   }
 };
