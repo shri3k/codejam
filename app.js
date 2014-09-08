@@ -15,6 +15,7 @@ var app = express();
 var config       = require('config');
 var routes       = require('index');
 var quiz         = require('quiz');
+var users        = require('users');
 var housekeeper  = require('./housekeeper');
 var database     = require('./database');
 
@@ -42,9 +43,7 @@ require('passconfig')(passport);
 
 // routes
 app.use('/', routes);
-// app.use('/', users);
 require('routes')(app, passport);
-
 
 app.use('/quiz', quiz);
 
