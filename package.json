@@ -13,6 +13,7 @@
     "body-parser": "^1.0.0",
     "connect-mongo": "^0.4.1",
     "cookie-parser": "^1.0.1",
+    "d3": "^3.4.11",
     "debug": "*",
     "express": "^4.0.0",
     "hbs": "^2.7.0",
@@ -29,10 +30,10 @@
     "gulp-spawn-mocha": "^0.1.7-beta.3",
     "istanbul": "^0.3.0",
     "jshint-stylish": "^0.4.0",
+    "less": "^1.7.4",
     "mocha": "^1.21.0",
     "node-inspector": "^0.7.4",
     "nodemon": "^1.2.1",
-    "should": "^4.0.4",
-    "watchify": "^1.0.2"
+    "should": "^4.0.4"
   }
 }
