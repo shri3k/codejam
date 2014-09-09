@@ -1,9 +1,5 @@
 module.exports = function(app, passport) {
 
-	app.get('/ind', function(req, res) {
-		res.render('index');
-	});
-
 	app.get('/profile', isLoggedIn, function(req, res) {
 		res.render('profile', {
 			user : req.user

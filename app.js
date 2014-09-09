@@ -43,7 +43,8 @@ require('passconfig')(passport);
 
 // routes
 app.use('/', routes);
-require('routes')(app, passport);
+var authRoutes = require('./routes/login');
+authRoutes(app, passport);
 
 app.use('/quiz', quiz);
 
