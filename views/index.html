@@ -16,11 +16,12 @@
 				<form name="LoginForm" class="pure-form pure-form-aligned" novalidate ng-controller="LoginController as login" ng-submit="login.submit(LoginForm.$valid)">
 					<fieldset>
 						<div class="pure-control-group">
-							<input id="email" type="email" class= "" placeholder="Email Address" ng-model="login.email" required>
+							<input id="email" type="email" name="user" class="form-with-icon" placeholder="Email Address" ng-model="login.email" ng-blur="login.blurCheck(LoginForm.user)"required>
+							<span class="error-icon" ng-show="login.formObj.user"></span>
 						</div>
 						<div class="pure-control-group">
-							<input id="password" type="password" class="" placeholder="Password" ng-model="login.password" required>
-							<div class="icon"></div>
+							<input id="password" type="password" name="pass" class="form-with-icon" placeholder="Password" ng-model="login.password" ng-blur="login.blurCheck(LoginForm.pass)" required>
+							<span class="error-icon" ng-show="login.formObj.pass"></span>
 						</div>
 						<button type="submit" class="pure-button pure-button-primary">Submit</button>
 					</fieldset>

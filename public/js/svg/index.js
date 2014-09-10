@@ -9,7 +9,7 @@ var logo = new icon({
 	"rectHeight2": 3
 });
 console.log(logo);
-var svg = d3.select(".icon")
+var svg = d3.selectAll(".error-icon")
 	.append("svg")
 	.attr("width", '100%')
 	.attr("height", '100%')
