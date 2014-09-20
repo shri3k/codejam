@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // passport, yo
-app.use(session({ secret: 'thisshouldbeextractedoutlater' })); 
+app.use(session({ secret: 'thisshouldbeextractedoutlater', saveUninitialized: true, resave: true })); 
 app.use(passport.initialize());
 app.use(passport.session()); 
 app.use(flash());
