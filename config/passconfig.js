@@ -5,6 +5,7 @@ var TwitterStrategy  = require('passport-twitter').Strategy;
 var GithubStrategy   = require('passport-github').Strategy;
 var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
 
+
 // load up the user model
 var User       = require('../models/User');
 
@@ -368,10 +369,6 @@ module.exports = function(passport) {
         // asynchronous
         process.nextTick(function() {
 
-console.log('Github profile:\n'+JSON.stringify(profile));
-
-console.log(' profile.emails:\n'+JSON.stringify(profile.emails));
-
             // check if the user is already logged in
             if (!req.user) {
 
@@ -438,6 +435,5 @@ console.log(' profile.emails:\n'+JSON.stringify(profile.emails));
         });
 
     }));
-
 
 };
