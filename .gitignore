@@ -2,4 +2,3 @@ codejam.sublime-project
 codejam.sublime-workspace
 node_modules/mongoose/examples/*
 npm-debug.log
-config/auth.js
