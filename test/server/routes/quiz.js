@@ -86,7 +86,7 @@ describe("Quiz API", function() {
 
 
     it("Delete with a non-existent key should return a 404 status and an error response", function (done) {
-        console.log(doc._id);
+        // console.log(doc._id);
         agent
             .delete("/quiz/"+ doc._id)
             .end(function(err, res){

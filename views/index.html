@@ -1,12 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{{title}}</title>
-	<link rel="stylesheet" href="public/stylesheet/stylesheet.css">
+	<title>Codejam</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:80px; }
+	</style>
 </head>
 <body>
-	Check the title2 for {{title}}
+<div class="container">
+
+	<div class="jumbotron text-center">
+		<h1><span class="fa fa-code"></span> codejam </h1>
+		<sup>beta</sup>
+		
+		<p>Login or Signup with:</p>
+		<a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Email Login</a>
+		<a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Email Signup</a>
+		<br>
+		
+		<a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+		<a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
+		<a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a>
+		<a href="/auth/github" class="btn btn-info"><span class="fa fa-github"></span> Github</a>
+	</div>
+
+</div>
 </body>
 </html>

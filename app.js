@@ -4,17 +4,20 @@ var favicon      = require('static-favicon');
 var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
-
-// added config dir to NODE_PATH in start script - use npm start
-var config       = require('config');
-var routes       = require('index');
-var users        = require('users');
-var quiz         = require('quiz');
+var passport     = require('passport');
+var flash        = require('connect-flash');
+var session      = require('express-session');
+var errorhandler = require('errorhandler');
 
 var app = express();
 
-var housekeeper = require('./housekeeper');
-var database    = require('./database');
+// config & routes
+var config       = require('config');
+var routes       = require('index');
+var quiz         = require('quiz');
+var users        = require('users');
+var housekeeper  = require('./housekeeper');
+var database     = require('./database');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,12 +32,24 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// passport, yo
+app.use(session({ secret: 'thisshouldbeextractedoutlater', saveUninitialized: true, resave: true })); 
+app.use(passport.initialize());
+app.use(passport.session()); 
+app.use(flash());
+// initialize Passport
+require('passconfig')(passport);
+
 // routes
 app.use('/', routes);
-app.use('/users', users);
+var authRoutes = require('./routes/login');
+authRoutes(app, passport);
+
 app.use('/quiz', quiz);
 
-housekeeper(app);
+// housekeeper(app);
+app.use(errorhandler({ dumpExceptions: true, showStack: true }));
 
 database(app);
 
