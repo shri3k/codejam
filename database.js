@@ -5,7 +5,7 @@ var fs           = require('fs');
 // setup mongoose
 function database(app) {
 
-    if (typeof config.db == 'undefined' || config.db.length == 0) {
+    if (typeof config.db == 'undefined' || config.db.length === 0) {
         console.log('\nNo database configured - check config/env/%s.js\n',
                 process.env.NODE_ENV);
         process.exit(-1);
