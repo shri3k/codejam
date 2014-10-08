@@ -15,4 +15,5 @@ module.exports = function() {
 			this.formObj[data.$name] = false;
 		}
 	}.bind(this);
+	this.testLength = [0,1,2];
 };

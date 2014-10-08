@@ -1,10 +1,8 @@
 'use strict';
-
-var app = require('angular').module('quizMe');
 require('./controllers')
 require('./services')
 
-function routes($routeProvider){
+module.exports = function($routeProvider){
 	$routeProvider
 		.when('/',{
 			controller: 'LoginController',
@@ -19,4 +17,3 @@ function routes($routeProvider){
 		});
 	
 }
-app.config(routes);
