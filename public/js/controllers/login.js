@@ -1,19 +1,19 @@
 'use strict';
 
-module.exports = function() {
-	this.formObj = {
+module.exports = function($scope) {
+	$scope.formObj = {
 		user: false,
 		pass: false
 	};
-	this.submit = function(isValid) {
+	$scope.submit = function(isValid) {
 		if (isValid) alert('yo yo yo ');
 	};
-	this.blurCheck = function(data) {
+	$scope.blurCheck = function(data) {
 		if (!data.$pristine && data.$invalid) {
-			this.formObj[data.$name] = true;
+			$scope.formObj[data.$name] = true;
 		} else {
-			this.formObj[data.$name] = false;
+			$scope.formObj[data.$name] = false;
 		}
-	}.bind(this);
-	this.testLength = [0,1,2];
+	}.bind($scope);
+	$scope.testLength = [0,1,2];
 };
