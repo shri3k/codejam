@@ -3,42 +3,38 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "NODE_PATH=./config:./routes NODE_ENV=development ./node_modules/.bin/nodemon bin/www",
+    "start": "lessc public/style/less/main.less > public/style/style.css && browserify -e public/js/index.js -o public/js/bundle.js --debug && NODE_PATH=./config:./routes NODE_ENV=development ./node_modules/.bin/nodemon bin/www",
     "test": "NODE_PATH=./:./config:./routes NODE_ENV=test gulp test",
-    "debug": "NODE_PATH=./config:./routes NODE_ENV=development node --debug-brk bin/www & ./node_modules/.bin/node-inspector bin/www"
+    "debug": "./node_modules/.bin/node-inspector bin/www & NODE_PATH=./config:./routes NODE_ENV=development node --debug bin/www"
   },
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.0.0",
-    "connect-flash": "^0.1.1",
-    "connect-mongo": "^0.4.1",
-    "cookie-parser": "^1.0.1",
-    "debug": "*",
+	"angular": "^1.2.21",
+    "angular-router-browserify": "0.0.1",
     "express": "^4.0.0",
-    "express-session": "^1.7.6",
-    "hbs": "^2.7.0",
-    "mongoose": "~3.8.16",
-    "mongoose-user": "^0.0.1",
+    "static-favicon": "^1.0.0",
     "morgan": "^1.2.2",
-    "passport": "^0.2.0",
-    "passport-local": "~1.0.0",
-    "passport-facebook": "~1.0.3",
-    "passport-github": "~0.1.5",
-    "passport-google-oauth": "~0.1.5",
-    "passport-twitter": "~1.0.2",
-    "static-favicon": "^1.0.0"
+    "cookie-parser": "^1.0.1",
+	"d3": "^3.4.11",
+    "body-parser": "^1.0.0",
+    "debug": "*",
+    "hbs": "^2.7.0",
+    "mongoose": "^3.9.0",
+    "connect-mongo": "^0.4.1",
+    "mongoose-user": "^0.0.1"
   },
   "devDependencies": {
+    "angular-mocks": "^1.2.22",
+    "browserify": "^5.10.1",
     "gulp": "^3.8.6",
     "gulp-jshint": "^1.7.1",
     "jshint-stylish": "^0.4.0",
+    "less": "^1.7.4",
     "mocha": "^1.21.0",
     "gulp-mocha": "^0.5.1",
     "should": "^4.0.4",
     "gulp-spawn-mocha": "^0.1.7-beta.3",
     "nodemon": "^1.2.1",
     "istanbul": "^0.3.0",
-    "node-inspector": "^0.7.4",
-    "chai": "~1.9.1"
+    "node-inspector": "^0.7.4"
   }
 }
