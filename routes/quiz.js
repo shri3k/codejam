@@ -13,13 +13,14 @@ function Post(req, res) {
 		type: req.body.type,
 		comments: req.body.comments
 	});
-	q.save(function(err, added, count) {
-		if (err) return res.json({
-			error: "500",
-			details: err
-		});
+	q.save(function(err) {
+		if (err) {
+			return res.send(400, err);
+		} else {
+			return res.json(q);
+		}
 	});
-	res.json(q);
+
 }
 
 function Get(req, res) {
@@ -37,12 +38,16 @@ function Delete(req, res) {
 	Quiz.remove({
 		_id: req.params.id
 	}, function(err, quiz, obj) {
-		if (err)
-			res.send(err);
-		res.json({
-			message: 'deleted',
-			object: obj
-		});
+		if (quiz === 0) {
+			res.send(404, {
+				error: 'not found'
+			});
+		} else {
+			res.json({
+				message: 'deleted',
+				object: obj
+			});
+		}
 	});
 }
 

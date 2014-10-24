@@ -5,19 +5,36 @@ describe("Quiz API", function() {
 
   describe("Post, Get, & Delete", function() {
   
-    var doc;
+    var doc,
+        agent = request.agent(app);
 
-    it("Post should return the created document", function (done) {
-        request(app)
+    it("Post of an invalid document should return a 404 response", function (done) {
+        agent
             .post("/quiz")
-            .send({title: "Supertest", descr:"this is a test", author:"mocha"})
+            .send({title: "Bad Document", descr:"this is a test", author:"mocha", type:"XX"})
             .end(function(err, res){
                 if (err) return done(err);
-                res.statusCode.should.equal(200) 
+                res.statusCode.should.equal(400) 
                 res.should.not.be.empty;
                 res.should.be.json;
                 res.body.should.be.an.Object;
-                res.body.should.have.keys(['_id','hidden','date','title','descr','author']);
+                res.body.should.have.keys(['errors','message','name']);
+                res.body.should.have.property('message', 'Validation failed');
+                done();
+        });
+    });
+
+    it("Post should return the created document", function (done) {
+        agent
+            .post("/quiz")
+            .send({title: "Supertest", descr:"this is a test", author:"mocha", type:"MC"})
+            .end(function(err, res){
+                if (err) return done(err);
+                res.statusCode.should.equal(200);
+                res.should.not.be.empty;
+                res.should.be.json;
+                res.body.should.be.an.Object;
+                res.body.should.have.keys(['_id','hidden','date','title','descr','author','type','__v']);
                 res.body.should.have.property('author', 'mocha');
                 doc = res.body;
                 done();
@@ -25,11 +42,11 @@ describe("Quiz API", function() {
     });
     
     it("Get with a key should return a single document", function (done) {
-        request(app)
+        agent
             .get("/quiz/"+ doc._id)
             .end(function(err, res){
                 if (err) return done(err);
-                res.statusCode.should.equal(200) 
+                res.statusCode.should.equal(200);
                 res.should.not.be.empty;
                 res.should.be.json;
                 res.body.should.be.an.Object;
@@ -41,11 +58,11 @@ describe("Quiz API", function() {
     });
 
     it("Get with no key should return an array of documents", function (done) {
-        request(app)
+        agent
             .get("/quiz")
             .end(function(err, res){
                 if (err) return done(err);
-                res.statusCode.should.equal(200) 
+                res.statusCode.should.equal(200); 
                 res.should.not.be.empty;
                 res.should.be.json;
                 res.body.should.be.an.Array.and.not.have.lengthOf(0);    
@@ -54,16 +71,28 @@ describe("Quiz API", function() {
     });
 
     it("Delete with a key should return a JSON object with a deleted count of 1", function (done) {
-        request(app)
+        agent
             .delete("/quiz/"+ doc._id)
             .end(function(err, res){
                 if (err) return done(err);
-                res.statusCode.should.equal(200) 
+                res.statusCode.should.equal(200);
                 res.should.not.be.empty;
                 res.should.be.json;
                 res.body.should.be.an.Object;  
-                res.body.should.containEql({message: 'deleted'});
-                // res.body.should.containDeep({object: { ok: true, n: 1 } });  
+                res.body.should.have.property('message','deleted');
+                done();
+        });
+    });
+
+
+    it("Delete with a non-existent key should return a 404 status and an error response", function (done) {
+        // console.log(doc._id);
+        agent
+            .delete("/quiz/"+ doc._id)
+            .end(function(err, res){
+                if (err) return done(err);
+                res.statusCode.should.equal(404);
+                res.body.should.have.property('error');
                 done();
         });
     });
