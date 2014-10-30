@@ -8,11 +8,11 @@ Express
 Angular
 Node
 
-Mocha
+Mocha  
+Chai  
+Supertest  
+Browserify  
 Gulp
 
-Sails.js?
 
-Trello test
-Trello test 2
-
+![TDD](https://pbs.twimg.com/media/Bx13LdQCYAE8CBO.jpg)
