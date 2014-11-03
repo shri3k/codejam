@@ -12,10 +12,8 @@ branches:
 deploy:
   provider: heroku
   api_key:
-      develop:
-        secure: hY3uf0V0UI3Q1dbLt5V6goakYAk/wAPlr6xYT1VNR+e7F7mvWhRQ8JBFJoHADJREzvGQkN8fN9hhIOB3SGUdHWEaOh9FYOZIZwrM686ErQRvrP0+kF9pZndj3So0xWBH5wdalauTOa1UAsiHnEtjOBa1tBb/M59klpZeL7oMHsM=
       master:
         secure: WcCieFLimtRLixOZhrUNEXtU5ctV1z544fQs++GKUoPRWnPHby8cF6dbj/6/YXbg2wzmySXcRDtyOjinsOPp33oY5d7Y5ONgGnWBUs89r7dMqf0h02ZiusoI8qguabtWb94y4n1CILXZ9ChzRF546rqaVaUB0XLvsfiuREzJB3A=
   app: 
-    develop: codejamz
+    develop: codejames
     master: codejam
