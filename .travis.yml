@@ -13,4 +13,4 @@ branches:
 deploy:
   provider: heroku
   api_key:
-    secure: WcCieFLimtRLixOZhrUNEXtU5ctV1z544fQs++GKUoPRWnPHby8cF6dbj/6/YXbg2wzmySXcRDtyOjinsOPp33oY5d7Y5ONgGnWBUs89r7dMqf0h02ZiusoI8qguabtWb94y4n1CILXZ9ChzRF546rqaVaUB0XLvsfiuREzJB3A=
+    secure: Z/TWQOtICpElRmi2+nICYfaoW2l1ULCXVwdZugbRA5zW6rbsaw/LJO+IAEyAjrdwANco9+mddh3jihImD3/NCAch/B3iSblBvbNEZAMdGcQ8ET3HrcG1YmT0gjftfM6EXsTG6ruil1zaLbmVG4jUNd+hIAXj3a9KEqN9Y3phaPk=
