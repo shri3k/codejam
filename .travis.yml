@@ -18,4 +18,3 @@ deploy:
     branch: develop
   app: 
     develop: codejames
-    master: codejam
