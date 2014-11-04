@@ -17,5 +17,5 @@ deploy:
   on:
     branch: develop
   app:
-    develop: codejames
+    develop: codejam
 
