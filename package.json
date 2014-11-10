@@ -8,13 +8,13 @@
     "debug": "./node_modules/.bin/node-inspector bin/www & NODE_PATH=./config:./routes NODE_ENV=development node --debug bin/www"
   },
   "dependencies": {
-	"angular": "^1.2.21",
+    "angular": "^1.2.21",
     "angular-router-browserify": "0.0.1",
     "express": "^4.0.0",
     "static-favicon": "^1.0.0",
     "morgan": "^1.2.2",
     "cookie-parser": "^1.0.1",
-	"d3": "^3.4.11",
+    "d3": "^3.4.11",
     "body-parser": "^1.0.0",
     "debug": "*",
     "hbs": "^2.7.0",
@@ -27,14 +27,15 @@
     "browserify": "^5.10.1",
     "gulp": "^3.8.6",
     "gulp-jshint": "^1.7.1",
+    "gulp-mocha": "^0.5.1",
+    "gulp-spawn-mocha": "^0.1.7-beta.3",
+    "istanbul": "^0.3.0",
+    "jshint": "^2.5.8",
     "jshint-stylish": "^0.4.0",
     "less": "^1.7.4",
     "mocha": "^1.21.0",
-    "gulp-mocha": "^0.5.1",
-    "should": "^4.0.4",
-    "gulp-spawn-mocha": "^0.1.7-beta.3",
+    "node-inspector": "^0.7.4",
     "nodemon": "^1.2.1",
-    "istanbul": "^0.3.0",
-    "node-inspector": "^0.7.4"
+    "should": "^4.0.4"
   }
 }
